@@ -22,42 +22,34 @@
                 <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
                     <ul
                         class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 ">
-                        <li>
-                            <NuxtLink to="/"
-                                class="block py-2 md:p-0 px-3 font-vadodara font-bold text-navbarlink bg-blue-700 rounded md:bg-transparent md:text-blue-700"
-                                aria-current="page">Home</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/about" class="block py-2 px-3 md:p-0 font-vadodara font-normal text-navbarlink">
-                                About</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink to="/services"
-                                class="block py-2 px-3 md:p-0 font-vadodara font-normal text-navbarlink">
-                                Services</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink href="#" class="block py-2 px-3 md:p-0 font-vadodara font-normal text-navbarlink">Our
-                                Fleet</NuxtLink>
-                        </li>
-                        <li>
-                            <NuxtLink href="#" class="block py-2 px-3 md:p-0 font-vadodara font-normal text-navbarlink">
-                                Contact Us</NuxtLink>
+                        <li v-for="value in pagesLinks">
+                            <NuxtLink :to="value.link" 
+                                class="aria-[current=page]:font-bold aria-[current=page]:text-[#1B57ED]
+                                 rounded-lg block py-2 px-3 md:p-0 font-vadodara font-normal text-navbarlink">{{
+                                    value.title }}
+                            </NuxtLink>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="w-full bg-themebackground" v-if="show == true">
+        <div class="w-full bg-themebackground" >
             <div class="mt-24 p-4">
-               
+                <ul class="p-4 bg-cardsbackground font-medium rounded-lg">
+                    <li v-for="value in pagesLinks">
+                        <NuxtLink :to="value.link"
+                            class="aria-[current=page]:font-bold aria-[current=page]:text-white aria-[current=page]:bg-blue-700
+                             rounded-lg block py-2 px-3 md:p-0 font-vadodara font-normal text-navbarlink">
+                             {{ value.title }}
+                        </NuxtLink>
+                    </li>
+                </ul>
             </div>
         </div>
-        <NuxtPage />
     </div>
 </template>
 <script setup>
-const show = false;
+// const show = false;
 const pagesLinks = [
     { title: "Home", link: "/" },
     { title: "About", link: "/about" },
@@ -66,3 +58,9 @@ const pagesLinks = [
     { title: "Contact Us", link: "/contactUs" },
 ]
 </script>
+
+   <!-- <li >
+        <NuxtLink to="/"
+         class="rounded-lg block py-2 md:p-0 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700"
+         aria-current="page">Home</NuxtLink>
+    </li>-->

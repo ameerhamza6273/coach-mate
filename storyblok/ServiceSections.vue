@@ -1,8 +1,8 @@
 <template>
-    <div v-editable="blok" class="max-w-[90%] mx-auto mt-8 pb-20">
+    <div v-editable="blok" class="max-w-[90%] mx-auto pt-28 pb-12">
         <div class="grid lg:grid-cols-5 sm:grid-cols-2">
             <div class="mb-16 col-span-2">
-                <img :src="blok.image.filename" :alt="blok.image.alt" class="rounded-t-[20px]">
+                <img :src="blok.image.filename" :alt="blok.image.alt">
             </div>
             <div class="mt-14 pl-16 col-span-3">
                 <h1 class="text-headingclr text-4xl font-bold font-montserrat">{{ blok.heading }}</h1>
